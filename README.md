@@ -2,8 +2,7 @@
 
 This gonna be folder specific for Infra setup using Docker:
 
-- nginx
+- Apache (php bundle on image)
 - PHP 7.4.2
-- Maria DB 10.4.8-bionic
-- PHPMyAdmin latest
-- Adminer (optional)
+- MySql 8.0
+- Adminer

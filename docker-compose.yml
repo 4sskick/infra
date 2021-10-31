@@ -24,7 +24,7 @@ services:
         container_name: ck_php
 
     db:
-        image: mysql
+        image: mysql:8.0
         command: --default-authentication-plugin=mysql_native_password
         volumes: 
             - mysql-data:/var/lib/mysql
