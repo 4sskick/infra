@@ -1,0 +1,54 @@
+version: '3.1'
+services:
+    # web:
+    #     image: nginx:1.17.3-alpine
+    #     build: 
+    #         context: .
+    #         dockerfile: ./nginx/Dockerfile
+    #     ports:
+    #         - "80:80"
+    #         - "443:443"
+    #     links:
+    #         - php
+    #     volumes_from:
+    #         - php
+    #     container_name: ck_nginx
+    php:
+        build: 
+            context: .
+            dockerfile: ./php-cli/Dockerfile
+        ports: 
+            - 80:80
+        volumes: 
+            - ${PROJECT_PATH}:/var/www/html
+        container_name: ck_php
+
+    db:
+        image: mysql
+        command: --default-authentication-plugin=mysql_native_password
+        volumes: 
+            - mysql-data:/var/lib/mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: ${DB_ROOT_PW}
+        container_name: ck_db
+
+    pma:
+        # image: dockette/adminer:mysql
+        image: adminer
+        ports:
+            - 8080:8080
+        container_name: ck_pma
+
+    composer:
+        image: composer:latest
+        command: ["composer", "install"]
+        depends_on: 
+            - php
+        volumes: 
+            - ${PROJECT_PATH}:/app
+        restart: always
+        container_name: ck_composer
+
+volumes:
+    mysql-data:
