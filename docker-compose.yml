@@ -40,15 +40,15 @@ services:
             - 8080:8080
         container_name: ck_pma
 
-    composer:
-        image: composer:latest
-        command: ["composer", "install"]
-        depends_on: 
-            - php
-        volumes: 
-            - ${PROJECT_PATH}:/app
-        restart: always
-        container_name: ck_composer
+    # composer:
+    #     image: composer:latest
+    #     command: ["composer", "install"]
+    #     depends_on: 
+    #         - php
+    #     volumes: 
+    #         - ${PROJECT_PATH}:/app
+    #     restart: always
+    #     container_name: ck_composer
 
 volumes:
     mysql-data:
