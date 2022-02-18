@@ -2,8 +2,7 @@
 
 This gonna be folder specific for Infra setup using Docker:
 
-- Apache (php bundle on image)
-- PHP 7.4.2
+- php:7.4-apache (php bundle on image, composer inside)
 - MySql 8.0
 - Adminer
 
