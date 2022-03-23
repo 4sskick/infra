@@ -14,7 +14,16 @@ RUN docker-php-ext-install pdo_mysql && \
     docker-php-ext-install mysqli && \
     docker-php-ext-install bcmath && \
     docker-php-ext-configure intl && \
-    docker-php-ext-install intl
+    docker-php-ext-install intl && \
+    docker-php-ext-install curl && \
+    docker-php-ext-install fileinfo && \
+    docker-php-ext-install pdo && \
+    docker-php-ext-install dom && \
+    docker-php-ext-install json && \
+    docker-php-ext-install tokenizer && \
+    docker-php-ext-install xml && \
+    docker-php-ext-install ctype && \
+    docker-php-ext-install bcmath
 
 # RUN pecl install redis && \
 #     rm -rf /tmp/pear && \
